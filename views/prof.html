@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca Profissional - MyMentalWellness</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/img/icone mental.png" type="image/x-icon">
+</head>
+<body>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar por nome ou especialidade..." class="search-bar">
+    
+    <div class="filter-options">
+        <select name="specialty" id="specialty">
+            <option value="all">Todas as especialidades</option>
+            <option value="psicólogo">Psicólogo</option>
+            <option value="psiquiatra">Psiquiatra</option>
+        </select>
+
+        <select name="location" id="location">
+            <option value="all">Qualquer localização</option>
+            <option value="online">Atendimento Online</option>
+            <option value="presencial">Atendimento Presencial</option>
+        </select>
+
+        <select name="price_range" id="price_range">
+            <option value="all">Qualquer preço</option>
+            <option value="baixo">Baixo</option>
+            <option value="medio">Médio</option>
+            <option value="alto">Alto</option>
+        </select>
+    </div>
+
+    <div class="results-section">
+        <h2>Sugestão de Profissionais</h2>
+        <div id="results-cards" class="results-cards">
+          
+      </div>
+    </div>
+</div>
+      <div class="back-to-top" id="backToTopButton"><a href="auto.html" id="voltarajuda">⬆️</a></div>
+      <footer id="footer-auto-gestao-section">
+        <p>&copy; 2024 MyMentalWellness. Todos os direitos reservados.</p>
+      </footer>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    let profissionais = []; 
+
+    // Função para buscar e exibir os profissionais
+    function carregarProfissionais() {
+        fetch('http://localhost:3000/api/professionals')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                profissionais = data; 
+                mostrarProfissionais(profissionais); 
+            })
+            .catch(error => console.error('Erro ao buscar profissionais', error));
+    }
+
+    // Função para exibir os profissionais
+    function mostrarProfissionais(profissionaisFiltrados) {
+        const resultsContainer = document.getElementById('results-cards');
+        resultsContainer.innerHTML = '';
+
+        if (profissionaisFiltrados.length === 0) {
+            resultsContainer.innerHTML = '<p>Nenhum profissional encontrado.</p>';
+            return;
+        }
+
+        profissionaisFiltrados.forEach(profissional => {
+            const card = document.createElement('div');
+            card.classList.add('professional-card');
+            card.innerHTML = `
+                <img src="${profissional.foto_url}" alt="Foto de ${profissional.nome}" class="professional-photo">
+                <h3>Nome: ${profissional.nome}</h3>
+                <p>Especialidade: ${profissional.especialidade}</p>
+                <p>Localização: ${profissional.localizacao}</p>
+                <p>Preço: R$ ${profissional.preco}</p>
+                <p>Biografia: ${profissional.biografia}</p>
+            `;
+            resultsContainer.appendChild(card);
+        });
+    }
+
+    // Função para filtrar os profissionais com base nos filtros
+    function filtrarProfissionais() {
+        const filtroPreco = document.getElementById('price_range').value;
+        const filtroEspecialidade = document.getElementById('specialty').value;
+        const filtroLocalizacao = document.getElementById('location').value;
+
+        let profissionaisFiltrados = profissionais;
+
+        if (filtroPreco === 'baixo') {
+            profissionaisFiltrados = profissionaisFiltrados.filter(p => p.preco < 200);
+        } else if (filtroPreco === 'medio') {
+            profissionaisFiltrados = profissionaisFiltrados.filter(p => p.preco >= 200 && p.preco <= 500);
+        } else if (filtroPreco === 'alto') {
+            profissionaisFiltrados = profissionaisFiltrados.filter(p => p.preco > 500);
+        }
+
+        if (filtroEspecialidade === 'psicologo') {
+            profissionaisFiltrados = profissionaisFiltrados.filter(p => p.especialidade === filtroEspecialidade);
+            }else if (filtroEspecialidade === 'psiquiatra'){
+                profissionaisFiltrados = profissionaisFiltrados.filter(p => p.especialidade === filtroEspecialidade)
+            }
+
+        if (filtroLocalizacao === 'online') {
+            profissionaisFiltrados = profissionaisFiltrados.filter(p => p.localizacao.toLowerCase() === 'online');
+        } else if (filtroLocalizacao === 'presencial') {
+            profissionaisFiltrados = profissionaisFiltrados.filter(p => p.localizacao.toLowerCase() !== 'online');
+        }
+
+        mostrarProfissionais(profissionaisFiltrados); 
+    }
+
+    document.getElementById('price_range').addEventListener('change', filtrarProfissionais);
+    document.getElementById('specialty').addEventListener('change', filtrarProfissionais);
+    document.getElementById('location').addEventListener('change', filtrarProfissionais);
+
+    carregarProfissionais(); 
+});
+
+      </script>
+</body>
+</html>

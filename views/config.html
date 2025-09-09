@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - MyMentalWellness</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="shortcut icon" href="/img/icone mental.png" type="image/x-icon">
+</head>
+<body>
+    <div id="header-auto-gestao-section">
+        <nav class="nav-auto-gestao">
+            <ul class="menu-auto-gestao">
+                <li><a href="auto.html">Auto-Gestão</a></li>
+                <li><a href="forum.html">Fórum</a></li>
+                <li><a href="grupo.html">Grupos de Discussão</a></li>
+                <li id="user-menu">
+                    <button id="user-button">Carregando...</button>
+                    <div id="user-dropdown" class="dropdown-content">
+                        <a href="index.html" id="logout-link">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="main-configuracoes-content">
+        <h1>Configurações da Conta</h1>
+        <div id="configuracoes-sections-content">
+            <div class="config-section">
+                <h2>Informações Pessoais</h2>
+                <p>Visualize suas informações pessoais, como nome e email.</p>
+                <button class="btn-auto-gestao" onclick="openConfig('informacoesPessoais')">Gerenciar Informações</button>
+            </div>
+
+            <div class="config-section">
+                <h2>Segurança</h2>
+                <p>Altere sua senha e outras configurações de segurança.</p>
+                <button class="btn-auto-gestao" id="openUpdatePasswordModal">Gerenciar Segurança</button>
+            </div>                    
+        </div>
+    </div>
+    <div id="main-configuracoes-content">
+        <div class="config-section-prof">
+            <h2>Cadastro de Profissionais</h2>
+            <p>Sou um profissional e quero me cadastrar!.</p>
+            <button class="btn-auto-gestao"><a href="cadastroprof.html" id="cadastroprof">Cadastro De Profissionais</a></button>
+        </div>
+    </div>
+
+    <div id="update-password-modal" class="modal">
+        <div id="update-password-modal-content">
+            <span id="update-password-close">&times;</span>
+            <h2>Atualizar Senha</h2>
+            <form id="update-password-form">
+                <label for="new-password">Nova Senha</label>
+                <input type="password" id="new-password" name="new-password" required>
+                
+                <label for="confirm-new-password">Confirmar Nova Senha</label>
+                <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+                
+                <button type="submit">Atualizar Senha</button>
+            </form>
+        </div>
+    </div>
+    <!-- Modal para Informações Pessoais -->
+    <div id="modal-informacoesPessoais" class="modal" aria-labelledby="modal-informacoesPessoaisTitle" style="display:none;">
+        <div class="modal-content">
+            <button class="close" aria-label="Fechar" onclick="closeConfig('informacoesPessoais')">&times;</button>
+            <h2 id="modal-informacoesPessoaisTitle">Informações Pessoais</h2>
+            <div>
+                <label for="nome">Nome:</label>
+                <p id="userName">Nome do Usuário</p> 
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <p id="userEmail">email@exemplo.com</p> 
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-auto-gestao-section">
+        <p>&copy; 2024 MyMentalWellness. Todos os direitos reservados.</p>
+    </div>
+
+    <script src="index.js">
+    </script>
+</body>
+</html>
