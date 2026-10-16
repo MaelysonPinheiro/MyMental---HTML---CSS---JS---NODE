@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto-Gestão - MyMentalWellness</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auto.css">
     <link rel="shortcut icon" href="/img/icone mental.png" type="image/x-icon">
 </head>
 <body>
     <div id="header-auto-gestao-section">
         <nav class="nav-auto-gestao">
+            <a class="brand-auto-gestao" href="index.html">MyMentalWellness</a>
             <ul class="menu-auto-gestao">
                 <li><a href="auto.html" class="active-auto-gestao">Auto-Gestão</a></li>
                 <li><a href="forum.html">Fórum</a></li>
@@ -27,9 +31,10 @@
 
     <div id="main-auto-gestao-content">
         <h1>Área de Auto-Gestão</h1>
+        <p class="intro-auto-gestao">Um espaço só seu para organizar metas, entender o que sente e registrar o seu dia.</p>
 
         <div id="auto-gestao-sections-content">
-            <div class="section-auto-gestao-content">
+            <div class="section-auto-gestao-content section-metas">
                 <h2>Metas Pessoais</h2>
                 <p>Defina e acompanhe suas metas diárias, semanais ou mensais.</p>
                 <button class="btn-auto-gestao" onclick="openModal('metasModal')">Gerenciar Metas</button>
@@ -38,7 +43,7 @@
                 </ul>
             </div>
 
-            <div class="section-auto-gestao-content">
+            <div class="section-auto-gestao-content section-emocoes">
                 <h2>Registro de Emoções</h2>
                 <p>Registre e acompanhe suas emoções ao longo do tempo.</p>
                 <button class="btn-auto-gestao" onclick="openModal('emocoesModal')">Registrar Emoções</button>
@@ -47,7 +52,7 @@
                 </ul>
             </div>
 
-            <div class="section-auto-gestao-content">
+            <div class="section-auto-gestao-content section-diario">
                 <h2>Diário Pessoal</h2>
                 <p>Escreva sobre o seu dia, suas reflexões e sentimentos.</p>
                 <button class="btn-auto-gestao" onclick="openModal('diarioModal')">Abrir Diário</button>
@@ -61,9 +66,9 @@
     <div class="floating-button">
         <a href="ajuda.html">Preciso de Ajuda!</a>
     </div>
-    
+
     <div id="footer-auto-gestao-section">
-        <p>&copy; 2024 MyMentalWellness. Todos os direitos reservados.</p>
+        <p>&copy; 2026 MyMentalWellness. Todos os direitos reservados.</p>
     </div>
 
     <div id="metasModal" class="modal-auto-gestao">
@@ -90,7 +95,6 @@
         </div>
     </div>
 
-
     <!-- Modal Diário Pessoal -->
     <div id="diarioModal" class="modal-auto-gestao">
         <div class="modal-content-auto-gestao">
@@ -102,10 +106,8 @@
                 <button type="submit" id="submit-diario" class="btn-auto-gestao">Salvar Diário</button>
             </form>
         </div>
-    </div>   
+    </div>
 
-    <script src="index.js">
-        
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
