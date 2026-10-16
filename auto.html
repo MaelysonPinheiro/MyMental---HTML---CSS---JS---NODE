@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Gestão - MyMentalWellness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auto.css">
+    <link rel="shortcut icon" href="/img/icone mental.png" type="image/x-icon">
+</head>
+<body>
+    <div id="header-auto-gestao-section">
+        <nav class="nav-auto-gestao">
+            <a class="brand-auto-gestao" href="index.html">MyMentalWellness</a>
+            <ul class="menu-auto-gestao">
+                <li><a href="auto.html" class="active-auto-gestao">Auto-Gestão</a></li>
+                <li><a href="forum.html">Fórum</a></li>
+                <li><a href="grupo.html">Grupos de Discussão</a></li>
+                <li id="user-menu">
+                    <button id="user-button">Carregando...</button>
+                    <div id="user-dropdown" class="dropdown-content">
+                        <a href="config.html">Configurações</a>
+                        <a href="index.html" id="logout-link">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="main-auto-gestao-content">
+        <h1>Área de Auto-Gestão</h1>
+        <p class="intro-auto-gestao">Um espaço só seu para organizar metas, entender o que sente e registrar o seu dia.</p>
+
+        <div id="auto-gestao-sections-content">
+            <div class="section-auto-gestao-content section-metas">
+                <h2>Metas Pessoais</h2>
+                <p>Defina e acompanhe suas metas diárias, semanais ou mensais.</p>
+                <button class="btn-auto-gestao" onclick="openModal('metasModal')">Gerenciar Metas</button>
+                <ul id="listaMetas">
+                    <!-- As metas serão inseridas dinamicamente aqui -->
+                </ul>
+            </div>
+
+            <div class="section-auto-gestao-content section-emocoes">
+                <h2>Registro de Emoções</h2>
+                <p>Registre e acompanhe suas emoções ao longo do tempo.</p>
+                <button class="btn-auto-gestao" onclick="openModal('emocoesModal')">Registrar Emoções</button>
+                <ul id="listaEmocoes">
+                    <!-- As emoções serão exibidas aqui -->
+                </ul>
+            </div>
+
+            <div class="section-auto-gestao-content section-diario">
+                <h2>Diário Pessoal</h2>
+                <p>Escreva sobre o seu dia, suas reflexões e sentimentos.</p>
+                <button class="btn-auto-gestao" onclick="openModal('diarioModal')">Abrir Diário</button>
+                <ul id="listaDiario">
+                    <!-- Entradas do diário pessoal salvas serão exibidas aqui -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-button">
+        <a href="ajuda.html">Preciso de Ajuda!</a>
+    </div>
+
+    <div id="footer-auto-gestao-section">
+        <p>&copy; 2026 MyMentalWellness. Todos os direitos reservados.</p>
+    </div>
+
+    <div id="metasModal" class="modal-auto-gestao">
+        <div class="modal-content-auto-gestao">
+            <span class="close-auto-gestao" onclick="closeModal('metasModal')">&times;</span>
+            <h2>Gerenciar Metas Pessoais</h2>
+            <form id="metaForm">
+                <label for="meta">Nova Meta:</label>
+                <input type="text" id="meta" name="meta" required>
+                <button type="submit" id="submit" class="btn-auto-gestao">Salvar Meta</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="emocoesModal" class="modal-auto-gestao">
+        <div class="modal-content-auto-gestao">
+            <span class="close-auto-gestao" onclick="closeModal('emocoesModal')">&times;</span>
+            <h2>Registrar Emoções</h2>
+            <form id="emocoesForm">
+                <label for="emocao">Como você se sente?</label>
+                <textarea id="emocao" name="emocao"></textarea>
+                <button type="submit" id="submit-emo" class="btn-auto-gestao">Salvar Registro</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Diário Pessoal -->
+    <div id="diarioModal" class="modal-auto-gestao">
+        <div class="modal-content-auto-gestao">
+            <span class="close-auto-gestao" onclick="closeModal('diarioModal')">&times;</span>
+            <h2>Diário Pessoal</h2>
+            <form id="diarioForm">
+                <label for="diario">Escreva sobre seu dia:</label>
+                <textarea id="diario" name="diario"></textarea>
+                <button type="submit" id="submit-diario" class="btn-auto-gestao">Salvar Diário</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

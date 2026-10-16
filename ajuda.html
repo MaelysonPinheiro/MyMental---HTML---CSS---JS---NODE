@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda - MyMentalWellness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auto.css">
+    <link rel="shortcut icon" href="/img/icone mental.png" type="image/x-icon">
+</head>
+<body>
+    <div id="header-auto-gestao-section">
+        <nav class="nav-auto-gestao">
+            <a class="brand-auto-gestao" href="index.html">MyMentalWellness</a>
+            <ul class="menu-auto-gestao">
+                <li><a href="auto.html">Auto-Gestão</a></li>
+                <li><a href="forum.html">Fórum</a></li>
+                <li><a href="grupo.html">Grupos de Discussão</a></li>
+                <li id="user-menu">
+                    <button id="user-button">Carregando...</button>
+                    <div id="user-dropdown" class="dropdown-content">
+                        <a href="config.html">Configurações</a>
+                        <a href="index.html" id="logout-link">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main id="help-main-content">
+        <h1 class="help-title">Área de Ajuda</h1>
+        <p class="intro-auto-gestao">Encontre técnicas e vídeos para auxiliar no seu bem-estar emocional e momentos de pausa.</p>
+
+        <section class="help-section">
+            <h2>Técnicas de Relaxamento</h2>
+            <div class="techniques-grid">
+                <article class="technique-card">
+                    <h3>Respiração Profunda</h3>
+                    <p>Aprenda a acalmar sua mente e desacelerar os batimentos cardíacos através de técnicas de respiração guiada.</p>
+                </article>
+                <article class="technique-card">
+                    <h3>Meditação Guiada</h3>
+                    <p>Siga exercícios práticos de meditação guiada focados no reequilíbrio, relaxamento e presença no momento.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>Vídeos Recomendados</h2>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/1fYt92gSJ_U?si=cThNV2_Bq-DzxWMV" title="Introdução à meditação" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p>Vídeo de introdução à meditação</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/lxaoaxxdIRE?si=6vSTQwWjOl3mBIRa" title="Como lidar com o estresse" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p>Como lidar com o estresse</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="back-to-top" id="backToTopButton">
+        <a href="auto.html" id="voltarajuda" title="Voltar à Auto-Gestão">⬆️</a>
+    </div>
+
+    <div class="floating-button">
+        <a href="prof.html">Preciso de Ajuda!</a>
+    </div>
+
+    <footer id="footer-auto-gestao-section">
+        <p>&copy; 2026 MyMentalWellness. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
